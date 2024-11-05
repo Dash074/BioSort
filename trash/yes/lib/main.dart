@@ -22,8 +22,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   File? _image;
-  String _prediction = ''; // Variable to hold the prediction result
-  Color _boxColor = Colors.grey; // Color for prediction box
+  String _prediction = ''; 
+  Color _boxColor = Colors.grey; 
 
   Future<void> _pickImageFromCamera() async {
     final pickedFile =
@@ -70,16 +70,16 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         if (jsonResponse['prediction'] == 0) {
           _prediction = 'Biodegradable';
-          _boxColor = Colors.green.shade200; // Subtle green color
+          _boxColor = Colors.green.shade200; 
         } else {
           _prediction = 'Non-biodegradable';
-          _boxColor = Colors.red.shade200; // Subtle red color
+          _boxColor = Colors.red.shade200; 
         }
       });
       print('Prediction: $_prediction');
     } else {
       print('Error: ${response.reasonPhrase}');
-      // Handle error response
+      
     }
   }
 
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Trash Classifier'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Padding for the entire layout
+        padding: const EdgeInsets.all(16.0), 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,10 +98,10 @@ class _HomeScreenState extends State<HomeScreen> {
             _image != null
                 ? Padding(
                     padding:
-                        const EdgeInsets.all(16.0), // Padding for the image
+                        const EdgeInsets.all(16.0),
                     child: Image.file(
                       _image!,
-                      height: 200, // Set a fixed height for better appearance
+                      height: 200, 
                     ),
                   )
                 : Padding(
@@ -118,23 +118,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: _pickImageFromCamera,
                   child: Text('Capture Trash Image'),
                 ),
-                SizedBox(width: 20), // Add some spacing between buttons
+                SizedBox(width: 20), 
                 ElevatedButton(
                   onPressed: _pickImageFromGallery,
                   child: Text('Upload from Gallery'),
                 ),
               ],
             ),
-            SizedBox(height: 20), // Add space before the prediction box
+            SizedBox(height: 20),
             // Prediction box
             _prediction.isNotEmpty
                 ? Container(
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
-                      color: _boxColor, // Dynamic background color
+                      color: _boxColor, 
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Colors.black38, // Subtle border color
+                        color: Colors.black38, 
                         width: 1,
                       ),
                     ),
@@ -142,11 +142,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Prediction: $_prediction',
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold, //test
+                        fontWeight: FontWeight.bold, 
                       ),
                     ),
                   )
-                : Container(), // Hide box if no prediction
+                : Container(), 
           ],
         ),
       ),
