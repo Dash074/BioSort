@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Prediction: $_prediction',
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.bold, //test
                       ),
                     ),
                   )
